@@ -9,6 +9,7 @@ const todoSchema = new mongoose.Schema({
   description: String,
   completed: Boolean,
 });
+
 const todos = mongoose.model("todos", todoSchema);
 
 module.exports = {
