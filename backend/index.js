@@ -1,6 +1,6 @@
 const express = require("express");
 const { createTodo, updateTodo } = require("./types");
-const { todo } = require("./db");
+const { todos } = require("./db");
 
 const app = express();
 
@@ -14,7 +14,7 @@ app.post("/todo", async (req, res) => {
       msg: "You send the wrong inputs",
     });
   }
-  await todo.create({
+  await todos.create({
     title: createPayload.title,
     description: createPayload.description,
     completed: false,
@@ -25,9 +25,9 @@ app.post("/todo", async (req, res) => {
   });
 });
 app.get("/todos", async (req, res) => {
-  const todos = await todo.find({});
+  const todo = await todos.find({});
   res.json({
-    todos,
+    todo,
   });
 });
 
@@ -40,7 +40,7 @@ app.put("/completed", async (req, res) => {
     });
   }
 
-  await todos.update(
+  await todos.updateOne(
     {
       _id: req.body.id,
     },
