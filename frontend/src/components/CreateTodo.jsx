@@ -37,7 +37,6 @@ export function CreateTodo() {
           padding: 10,
         }}
         onClick={() => {
-          // axios
           fetch("http://localhost:3000/todo", {
             method: "POST",
             body: JSON.stringify({
