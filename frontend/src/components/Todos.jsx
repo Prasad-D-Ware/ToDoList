@@ -1,3 +1,4 @@
+// Todos component
 export function Todos({ todos }) {
   return (
     <div>
